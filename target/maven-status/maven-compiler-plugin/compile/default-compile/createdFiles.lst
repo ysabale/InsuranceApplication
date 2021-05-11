@@ -1,0 +1,5 @@
+com\insurance\service\InsuranceService.class
+com\insurance\InsuranceApplication.class
+com\insurance\model\InsuranceModel.class
+com\insurance\repository\InsuranceRepository.class
+com\insurance\controller\InsuranceController.class
