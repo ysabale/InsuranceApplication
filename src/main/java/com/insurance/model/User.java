@@ -67,6 +67,14 @@ public class User {
 		this.password = password;
 	}
 
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
 	public String getName() {
 		return name;
 	}

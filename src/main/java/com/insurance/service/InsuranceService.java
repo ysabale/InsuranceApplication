@@ -27,11 +27,9 @@ public class InsuranceService {
 
 		} else if (StringUtils.isEmpty(insurance.getInsuranceType())) {
 			throw new InsuranceCustomException("Insurance Type Should not be Empty");
-		} else if (StringUtils.isEmpty(insurance.getTenure())||(insurance.getTenure()==0)) {
+		} else if (StringUtils.isEmpty(insurance.getTenure()) || (insurance.getTenure() == 0)) {
 			throw new InsuranceCustomException("Tenure Should not be Empty or Zero ");
-		}
-		else if(StringUtils.isEmpty(insurance.getPremium())||(insurance.getPremium()==0))
-		{
+		} else if (StringUtils.isEmpty(insurance.getPremium()) || (insurance.getPremium() == 0)) {
 			throw new InsuranceCustomException("Premium Should not be Empty or Zero ");
 
 		}
