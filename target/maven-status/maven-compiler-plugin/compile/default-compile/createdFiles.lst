@@ -1,5 +1,9 @@
 com\insurance\service\InsuranceService.class
 com\insurance\InsuranceApplication.class
-com\insurance\model\InsuranceModel.class
+com\insurance\controller\UserController.class
+com\insurance\model\User.class
 com\insurance\repository\InsuranceRepository.class
+com\insurance\repository\UserRepository.class
+com\insurance\model\Insurance.class
 com\insurance\controller\InsuranceController.class
+com\insurance\service\UserService.class

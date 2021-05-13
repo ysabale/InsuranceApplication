@@ -1,25 +1,59 @@
 package com.insurance.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-import com.insurance.model.InsuranceModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import com.insurance.config.InsuranceCustomException;
+import com.insurance.model.Insurance;
+import com.insurance.repository.InsuranceRepository;
 
 @Service
 public class InsuranceService {
 
 	@Autowired
-	private JdbcTemplate jdbc;
-	
-	
-	public String savePolicyDetails(InsuranceModel insurancemodel) {
-		jdbc.execute(
-				"insert into insurance_details(insurance_id,insurance_name,insurance_type,insurance_assured_amount)"
-						+ "values('" + insurancemodel.getInsuranceId() + "','" + insurancemodel.getInsuranceName()
-						+ "','" + insurancemodel.getInsuranceType() + "','" + insurancemodel.getInsuranceAssuredAmount()
-						+ "')");
-		return "Policy details Saved Successfully";
+	private InsuranceRepository insuranceRepository;
+
+	public void saveOrUpdate(Insurance insurance) throws InsuranceCustomException {
+		if (insurance == null) {
+			throw new InsuranceCustomException("Insurance Details Should not be Empty");
+		} else if (insurance.getInsuranceId() == null || insurance.getInsuranceId() == 0) {
+			throw new InsuranceCustomException("Insurance Id Should not be Empty");
+
+		} else if (StringUtils.isEmpty(insurance.getInsuranceName())) {
+			throw new InsuranceCustomException("Insurance Name Should not be Empty");
+
+		} else if (StringUtils.isEmpty(insurance.getInsuranceType())) {
+			throw new InsuranceCustomException("Insurance Type Should not be Empty");
+		} else if (StringUtils.isEmpty(insurance.getTenure())||(insurance.getTenure()==0)) {
+			throw new InsuranceCustomException("Tenure Should not be Empty or Zero ");
+		}
+		else if(StringUtils.isEmpty(insurance.getPremium())||(insurance.getPremium()==0))
+		{
+			throw new InsuranceCustomException("Premium Should not be Empty or Zero ");
+
+		}
+		System.out.println(insurance.getPremium());
+		insuranceRepository.save(insurance);
+
+	}
+
+	public List<Insurance> getAllPolicyDetails() {
+
+		return insuranceRepository.findAll();
+	}
+
+	public void updatePolicyDetails(Insurance insurance) {
+
+		insuranceRepository.save(insurance);
+	}
+
+	public void deletePolicyDetails(Insurance insurance) {
+
+		insuranceRepository.delete(insurance);
+
 	}
 
 }
