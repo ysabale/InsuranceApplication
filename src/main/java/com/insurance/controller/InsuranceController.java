@@ -26,9 +26,9 @@ public class InsuranceController {
 		insuranceService.saveOrUpdate(insurance);
 	}
 
-	@GetMapping("/getPolicyDetails")
-	private List<Insurance> getAllPolicyDetails() {
-		return insuranceService.getAllPolicyDetails();
+	@GetMapping("/getInsuranceDetails")
+	private List<Insurance> getInsuranceDetails() {
+		return insuranceService.getInsuranceDetails();
 	}
 
 	@PutMapping("/updatePolicyDetails")

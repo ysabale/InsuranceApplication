@@ -38,7 +38,7 @@ public class InsuranceService {
 
 	}
 
-	public List<Insurance> getAllPolicyDetails() {
+	public List<Insurance> getInsuranceDetails() {
 
 		return insuranceRepository.findAll();
 	}

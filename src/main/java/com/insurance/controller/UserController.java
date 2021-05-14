@@ -21,9 +21,9 @@ public class UserController {
 		userService.saveOrUpdate(user);
 	}
 
-	@PostMapping("/getUser")
-	private User getUserById(@RequestBody User user) {
-		return userService.getUserById(user);
+	@PostMapping("/validateUser")
+	private User validateUser(@RequestBody User user) {
+		return userService.validateUser(user);
 
 	}
 

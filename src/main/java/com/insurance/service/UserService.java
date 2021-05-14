@@ -56,4 +56,14 @@ public class UserService {
 		return userRepository.findByLoginId(user.getLoginId());
 	}
 
+	public User validateUser(User user) {		
+		User validUser = getUserById(user);
+		if(validUser!=null && user.getPassword().equals(validUser.getPassword()))
+		{
+			return validUser;
+		} 
+		
+		return null;
+	}
+
 }

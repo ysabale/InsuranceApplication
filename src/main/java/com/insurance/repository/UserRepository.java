@@ -8,6 +8,5 @@ import com.insurance.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	
 	User findByLoginId(String loginId);
 }
