@@ -23,6 +23,12 @@ public class Insurance {
 
 	@Column(name ="tenure")
 	private Integer tenure;
+
+	@Column(name="insurance_assured_amount")
+	private Double insuranceAssuredAmount;
+	
+	@Column(name ="premium")
+	private Integer premium;
 	
 	public Integer getTenure() {
 		return tenure;
@@ -39,12 +45,6 @@ public class Insurance {
 	public void setPremium(Integer premium) {
 		this.premium = premium;
 	}
-
-	@Column(name ="premium")
-	private Integer premium;
-	
-	@Column(name="insurance_assured_amount")
-	private Double insuranceAssuredAmount;
 
 	public Integer getInsuranceId() {
 		return insuranceId;

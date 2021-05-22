@@ -48,9 +48,9 @@ public class InsuranceService {
 		insuranceRepository.save(insurance);
 	}
 
-	public void deletePolicyDetails(Insurance insurance) {
+	public void deletePolicyDetails(List<Insurance> insurance) {
 
-		insuranceRepository.delete(insurance);
+		insuranceRepository.deleteAll(insurance);
 
 	}
 

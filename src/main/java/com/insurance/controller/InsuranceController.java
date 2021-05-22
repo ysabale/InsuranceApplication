@@ -21,7 +21,7 @@ public class InsuranceController {
 	@Autowired
 	private InsuranceService insuranceService;
 
-	@PostMapping("/savePolicyDetails")
+	@PostMapping("/saveInsuranceDetails")
 	private void savePolicyDetails(@RequestBody Insurance insurance) throws InsuranceCustomException {
 		insuranceService.saveOrUpdate(insurance);
 	}
@@ -31,16 +31,15 @@ public class InsuranceController {
 		return insuranceService.getInsuranceDetails();
 	}
 
-	@PutMapping("/updatePolicyDetails")
-	private String updatePolicyDetails(@RequestBody Insurance insurance) {
+	@PutMapping("/updateInsuranceDetails")
+	private void updatePolicyDetails(@RequestBody Insurance insurance) {
 		insuranceService.updatePolicyDetails(insurance);
-		return "Policy Updated Successfully!!!!";
 	}
 
-	@DeleteMapping("/deletePolicyDetails")
-	private String deletePolicyDetails(@RequestBody Insurance insurance) {
+	@DeleteMapping("/deleteInsuranceDetails")
+	private void deletePolicyDetails(@RequestBody List<Insurance> insurance) {
+		System.out.println(insurance.size());
 		insuranceService.deletePolicyDetails(insurance);
-		return "Record Deleted Successfully!!!!!";
 	}
 
 }
