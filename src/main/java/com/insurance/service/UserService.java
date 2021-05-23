@@ -17,8 +17,7 @@ public class UserService {
 	public void saveOrUpdate(User user) throws InsuranceCustomException {
 		validateData(user);
 		User validUser = getUserById(user);
-		if(validUser!=null && !(StringUtils.isEmpty(validUser.getLoginId())))
-		{
+		if (validUser != null && !(StringUtils.isEmpty(validUser.getLoginId()))) {
 			throw new InsuranceCustomException("Login Id Already Exist");
 		}
 		userRepository.save(user);
@@ -33,14 +32,14 @@ public class UserService {
 			throw new InsuranceCustomException("Name Should Not be Null");
 		} else if (StringUtils.isEmpty(user.getPassword()) || user.getPassword() == null) {
 			throw new InsuranceCustomException("Password Should not be Empty");
-		} 
+		}
 		/*
 		 * else if (StringUtils.isEmpty(user.getAddress()) || user.getAddress() == null)
 		 * { throw new InsuranceCustomException("Address Should not be Empty"); }
 		 */
 		else if (StringUtils.isEmpty(user.getMobile()) || user.getMobile() == null) {
 			throw new InsuranceCustomException("Mobile Should not be null");
-		} 
+		}
 		/*
 		 * else if (StringUtils.isEmpty(user.getEmailId()) || user.getEmailId() == null)
 		 * { throw new InsuranceCustomException("Email Id Shoud not be null"); } else if
@@ -54,18 +53,18 @@ public class UserService {
 		 * new InsuranceCustomException("PinCode Should not be null"); }
 		 */
 	}
+
 	public User getUserById(User user) {
 
 		return userRepository.findByLoginId(user.getLoginId());
 	}
 
-	public User validateUser(User user) {		
+	public User validateUser(User user) {
 		User validUser = getUserById(user);
-		if(validUser!=null && user.getPassword().equals(validUser.getPassword()))
-		{
+		if (validUser != null && user.getPassword().equals(validUser.getPassword())) {
 			return validUser;
-		} 
-		
+		}
+
 		return null;
 	}
 

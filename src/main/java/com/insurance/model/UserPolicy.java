@@ -31,8 +31,30 @@ public class UserPolicy {
 	private Integer tenure;
 	
 	@Column(name = "sum_assured_amount")
-	private Integer sumAssuredAmount;
+	private Integer insuranceAssuredAmount;
 	
+	@Column(name = "login_id")
+	private String loginId;
+	
+	@Column(name = "premium")
+	private Double premium;
+	
+	
+	public void setPremium(Double premium) {
+		this.premium = premium;
+	}
+	public Double getPremium() {
+		return premium;
+	}
+	
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+	
+	public String getLoginId() {
+		return loginId;
+	}
+
 	public Integer getInsuranceId() {
 		return insuranceId;
 	}
@@ -73,15 +95,13 @@ public class UserPolicy {
 		this.id = id;
 	}
 
-	public Integer getSumAssuredAmount() {
-		return sumAssuredAmount;
+	public Integer getInsuranceAssuredAmount() {
+		return insuranceAssuredAmount;
 	}
-
-	public void setSumAssuredAmount(Integer sumAssuredAmount) {
-		this.sumAssuredAmount = sumAssuredAmount;
-	}
-
 	
+	public void setInsuranceAssuredAmount(Integer insuranceAssuredAmount) {
+		this.insuranceAssuredAmount = insuranceAssuredAmount;
+	}
 
 	
 	
